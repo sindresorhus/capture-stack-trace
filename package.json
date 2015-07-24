@@ -1,6 +1,6 @@
 {
   "name": "capture-stack-trace",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Error.captureStackTrace ponyfill",
   "license": "MIT",
   "repository": "floatdrop/capture-stack-trace",
