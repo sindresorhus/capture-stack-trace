@@ -1,32 +1,29 @@
 # capture-stack-trace
 
-> Ponyfill for Error.captureStackTrace
+> [Ponyfill](https://ponyfill.com) for [`Error#captureStackTrace`](https://nodejs.org/api/errors.html#errorcapturestacktracetargetobject-constructoropt)
 
+This is useful for creating cross-platform code as `Error#captureStackTrace` is only available in V8-based JavaScript environments like Node.js and Chrome.
 
 ## Install
 
+```sh
+npm install capture-stack-trace
 ```
-$ npm install --save capture-stack-trace
-```
-
 
 ## Usage
 
 ```js
-var captureStackTrace = require('capture-stack-trace');
+import captureStackTrace from 'capture-stack-trace';
 
-captureStackTrace({});
-// => {stack: ...}
+const object = {};
+captureStackTrace(object);
+object.stack;  // Similar to `new Error().stack`
 ```
-
 
 ## API
 
-### captureStackTrace(error)
+### captureStackTrace(object)
 
-#### error
+Creates a `.stack` property on the given `object`, which when accessed returns a string representing the location in the code at which `captureStackTrace()` was called.
 
-*Required*  
-Type: `Object`
-
-Target Object, that will recieve stack property.
+**Note:** This ponyfill does not support the second parameter of `Error#captureStackTrace`.

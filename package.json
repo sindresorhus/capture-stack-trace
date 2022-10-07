@@ -5,26 +5,28 @@
 	"license": "MIT",
 	"repository": "sindresorhus/capture-stack-trace",
 	"funding": "https://github.com/sponsors/sindresorhus",
-	"author": {
-		"name": "Vsevolod Strukchinsky",
-		"email": "floatdrop@gmail.com",
-		"url": "https://github.com/floatdrop"
-	},
+	"type": "module",
+	"exports": "./index.js",
 	"engines": {
-		"node": ">=0.10.0"
+		"node": ">=14.16"
 	},
 	"scripts": {
-		"test": "mocha"
+		"test": "xo && ava"
 	},
 	"files": [
 		"index.js"
 	],
 	"keywords": [
+		"ponyfill",
+		"polyfill",
 		"error",
-		"captureStackTrace"
+		"capturestacktrace",
+		"capture",
+		"stack",
+		"trace"
 	],
-	"dependencies": {},
 	"devDependencies": {
-		"mocha": "*"
+		"ava": "^4.3.3",
+		"xo": "^0.52.4"
 	}
 }

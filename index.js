@@ -1,18 +1,14 @@
-'use strict';
-
-module.exports = Error.captureStackTrace || function (error) {
-	var container = new Error();
+function captureStackTrace(error) {
+	const container = new Error(); // eslint-disable-line unicorn/error-message
 
 	Object.defineProperty(error, 'stack', {
 		configurable: true,
-		get: function getStack() {
-			var stack = container.stack;
-
-			Object.defineProperty(this, 'stack', {
-				value: stack
-			});
-
+		get() {
+			const {stack} = container;
+			Object.defineProperty(this, 'stack', {value: stack});
 			return stack;
-		}
+		},
 	});
-};
+}
+
+export default Error.captureStackTrace ?? captureStackTrace;

@@ -1,13 +1,8 @@
-/* global it */
+import test from 'ava';
+import captureStackTrace from './index.js';
 
-'use strict';
-
-var assert = require('assert');
-var captureStackTrace = require('./');
-Error.captureStackTrace = undefined;
-
-it('should capture stack trace', function () {
-	var obj = {};
-	captureStackTrace(obj);
-	assert.ok(obj.stack);
+test('main', t => {
+	const object = {};
+	captureStackTrace(object);
+	t.is(typeof object.stack, 'string');
 });
