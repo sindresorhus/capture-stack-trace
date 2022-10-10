@@ -6,7 +6,10 @@
 	"repository": "sindresorhus/capture-stack-trace",
 	"funding": "https://github.com/sponsors/sindresorhus",
 	"type": "module",
-	"exports": "./index.js",
+	"exports": {
+		"types": "./index.d.ts",
+		"default": "./index.js"
+	},
 	"engines": {
 		"node": ">=14.16"
 	},
@@ -14,11 +17,13 @@
 		"test": "xo && ava"
 	},
 	"files": [
-		"index.js"
+		"index.js",
+		"index.d.ts"
 	],
 	"keywords": [
 		"ponyfill",
 		"polyfill",
+		"shim",
 		"error",
 		"capturestacktrace",
 		"capture",
